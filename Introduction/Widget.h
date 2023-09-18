@@ -18,7 +18,7 @@ public:
 	Widget(const Widget& wid);
 
 	// move constructor
-	Widget(Widget&& widMove);
+	Widget(Widget&& widMove) noexcept;
 
 	void Display();
 
