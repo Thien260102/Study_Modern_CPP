@@ -2,23 +2,36 @@
 //
 
 #include <iostream>
+#include <Windows.h>
+#include <array>
+
+#define RED     12
+#define DEFAULT 15
+#define BLUE    9
 
 #define stringify( name ) #name
 
-enum class FUNCTION
+enum class TEST
 {
-    F1,
-    F2,
-    F3,
-    F4,
-    F5,
-    F6,
-    F7,
-    F8,
-    F9,
-    F10
+    T1,
+    T2,
+    T3,
+    T4,
+    T5,
+    T6,
+    T7,
+    T8,
+    T9,
+    T10
 };
 
+template<typename T, std::size_t N>
+constexpr std::size_t arraySize(T(&)[N]) noexcept
+{
+    return N;
+}
+
+#pragma region Template Function
 template<typename T>
 void Function1(T& param)
 {
@@ -49,11 +62,26 @@ void Function5(T param) // param were a pointer instead of a reference, but it w
     std::cout << "\tAddress of pointer in function: " << &param << "\n";
 }
 
-void Test(FUNCTION type)
+template<typename T>
+void Function6(T someFunc)
+{
+    std::cout << "\tAddress of pointer in function: " << &someFunc << "\n";
+}
+
+void Function7(void (&someFunc)(int, double))
+{
+    std::cout << "\tAddress of pointer in function: " << &someFunc << "\n";
+}
+
+#pragma endregion
+
+void someFunction(int, double);
+
+void Test(TEST type)
 {
     switch (type)
     {
-    case FUNCTION::F1:
+    case TEST::T1:
     {
         int x = 5;
         std::cout << "Address in main: " << &x;
@@ -70,11 +98,11 @@ void Test(FUNCTION type)
 
         break;
 
-    case FUNCTION::F2:
+    case TEST::T2:
     {
         int x = 5;
         std::cout << "Address in main: " << &x;
-        Function2(x);   // paramType is int&
+        Function2(x);   // paramType is const int&
 
         const int cx = x;
         std::cout << "Address in main: " << &cx;
@@ -87,7 +115,7 @@ void Test(FUNCTION type)
 
         break;
 
-    case FUNCTION::F3:
+    case TEST::T3:
     {
         int x = 5;
         std::cout << "Address in main: " << &x;
@@ -101,7 +129,7 @@ void Test(FUNCTION type)
 
         break;
 
-    case FUNCTION::F4:
+    case TEST::T4:
     {
         int x = 5;
         std::cout << "Address in main: " << &x;
@@ -120,7 +148,7 @@ void Test(FUNCTION type)
 
         break;
 
-    case FUNCTION::F5:
+    case TEST::T5:
     {
         int x = 5;
         std::cout << "Address in main: " << &x;
@@ -137,7 +165,7 @@ void Test(FUNCTION type)
 
     break;
 
-    case FUNCTION::F6:
+    case TEST::T6:
     {
         const int* const ptr = new int(5);
         std::cout << "Address in main: " << &ptr;
@@ -146,15 +174,28 @@ void Test(FUNCTION type)
 
     break;
 
-    case FUNCTION::F7:
+    case TEST::T7:
     {
-        const char name[] = "J. P. Briggs";
+        const char name[] = "Thien Nguyen";
         std::cout << "Address in main: " << (&name);
-        Function5(name);
-        //std::cout << name;
+        std::cout << "\tlength = " << arraySize(name);
+        Function5(name);    // decay rule, become const char*, this way can't get length of array
+
+        Function1(name);    // still origin array, this way can get length of array
     }
 
     break;
+
+    case TEST::T8:
+    {
+        std::cout << "Address in main: " << (&someFunction);
+
+        Function6(someFunction);    // pass by pointer
+        Function7(someFunction);    // pass by value
+    }
+
+    break;
+
 
     }
 
@@ -163,25 +204,75 @@ void Test(FUNCTION type)
 
 int main()
 {
+    HANDLE hConsole;
+    hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+    
     // Case 1: ParamType is a Reference or Pointer, but not a Universal Reference
+    int k = RED;
+    SetConsoleTextAttribute(hConsole, k);
+
     std::cout << "CASE 1: ParamType is a Reference or Pointer, but not a Universal Reference\n";
-    Test(FUNCTION::F1);
-    Test(FUNCTION::F2);
-    Test(FUNCTION::F3);
+
+    k = DEFAULT;
+    SetConsoleTextAttribute(hConsole, k);
+
+    Test(TEST::T1);
+    Test(TEST::T2);
+    Test(TEST::T3);
 
     // Case2: ParamType is a Universal Reference
+    k = RED;
+    SetConsoleTextAttribute(hConsole, k);
+
     std::cout << "CASE 2: ParamType is a Universal Reference\n";
-    Test(FUNCTION::F4);
+
+    k = DEFAULT;
+    SetConsoleTextAttribute(hConsole, k);
+
+    Test(TEST::T4);
 
     // Case3: ParamType is Neither a Pointer nor a Reference
+    k = RED;
+    SetConsoleTextAttribute(hConsole, k);
+
     std::cout << "CASE 3: ParamType is Neither a Pointer nor a Reference\n";
+
+    k = DEFAULT;
+    SetConsoleTextAttribute(hConsole, k);
+
     std::cout << "Normal: ";
-    Test(FUNCTION::F5);
+    Test(TEST::T5);
 
     std::cout << "Special: ";
-    Test(FUNCTION::F6);
+    Test(TEST::T6);
 
-    // Array arguments
-    //std::cout << "Array arguments: \n";
-    //Test(FUNCTION::F7);
+
+    // ARRAY ARGUMENTS
+    k = BLUE;
+    SetConsoleTextAttribute(hConsole, k);
+
+    std::cout << "\nARRAY ARGUMENTS: \n";
+
+    k = DEFAULT;
+    SetConsoleTextAttribute(hConsole, k);
+
+    Test(TEST::T7);
+    // but as a modern c++ developer, prefer std::array to a built-in array
+
+    // FUNCTION ARGUMENTS
+    k = BLUE;
+    SetConsoleTextAttribute(hConsole, k);
+
+    std::cout << "\nFUNCTION ARGUMENTS: \n";
+
+    k = DEFAULT;
+    SetConsoleTextAttribute(hConsole, k);
+
+    Test(TEST::T8);
+}
+
+
+void someFunction(int a, double b)
+{
+
 }
