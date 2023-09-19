@@ -6,6 +6,7 @@
 #include <array>
 
 #include "AutoTypeDeduction.h"
+#include "DecltypeExample.h"
 
 #define RED     12
 #define DEFAULT 15
@@ -287,6 +288,31 @@ int main()
     //////// auto usually similar as template type deduction but difference when auto initialize with braces "{}"
     //////// auto in function return type or a lambda parameter implies template type deduction, not auto type deduction.
 
+
+    // DECLTYPE
+    k = RED;
+    SetConsoleTextAttribute(hConsole, k);
+
+    std::cout << "\n\nDECLTYPE: \n";
+
+    k = DEFAULT;
+    SetConsoleTextAttribute(hConsole, k);
+
+    NormalCases();
+    SpecialCases();
+
+    /// <summary>
+    /// //////// remember 
+    /// • decltype almost always yields the type of a variable or expression without
+    ///   any modifications.
+    /// • For lvalue expressions of type T other than names, decltype always reports a
+    ///   type of T& .
+    /// • C++14 supports decltype(auto), which, like auto, deduces a type from its
+    ///   initializer, but it performs the type deduction using the decltype rules.
+    /// </summary>
+    /// <returns></returns>
+
+    std::cout << "\n\n\n";
 }
 
 

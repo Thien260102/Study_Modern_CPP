@@ -21,9 +21,15 @@
     <ClCompile Include="AutoTypeDeduction.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="DecltypeExample.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AutoTypeDeduction.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DecltypeExample.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -67,5 +67,5 @@ void FunctionAuto()
 
 void Function(int, double)
 {
-
+	
 }

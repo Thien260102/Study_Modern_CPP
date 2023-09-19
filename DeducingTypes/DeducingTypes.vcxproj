@@ -140,10 +140,17 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AutoTypeDeduction.cpp" />
+    <ClCompile Include="DecltypeExample.cpp" />
     <ClCompile Include="DeducingTypes.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AutoTypeDeduction.h" />
+    <ClInclude Include="DecltypeExample.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Introduction\Introduction.vcxproj">
+      <Project>{2a403767-6d5d-4824-b9aa-f1e96d844f4b}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
