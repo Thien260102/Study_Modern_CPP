@@ -5,6 +5,8 @@
 #include <Windows.h>
 #include <array>
 
+#include "AutoTypeDeduction.h"
+
 #define RED     12
 #define DEFAULT 15
 #define BLUE    9
@@ -269,6 +271,22 @@ int main()
     SetConsoleTextAttribute(hConsole, k);
 
     Test(TEST::T8);
+
+    // AUTO TYPE DEDUCTION
+    k = BLUE;
+    SetConsoleTextAttribute(hConsole, k);
+
+    std::cout << "\nAUTO TYPE DEDUCTION: \n";
+
+    k = DEFAULT;
+    SetConsoleTextAttribute(hConsole, k);
+
+    FunctionAuto();
+
+    //////// remember //////////
+    //////// auto usually similar as template type deduction but difference when auto initialize with braces "{}"
+    //////// auto in function return type or a lambda parameter implies template type deduction, not auto type deduction.
+
 }
 
 

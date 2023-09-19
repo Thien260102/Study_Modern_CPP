@@ -139,7 +139,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AutoTypeDeduction.cpp" />
     <ClCompile Include="DeducingTypes.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AutoTypeDeduction.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
