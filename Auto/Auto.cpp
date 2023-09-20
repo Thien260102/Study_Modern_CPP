@@ -40,6 +40,15 @@ int main()
 
     Example2();
 
+
+    SetConsoleTextAttribute(hConsole, RED);
+
+    std::cout << "Example 3: more efficient code\n";
+
+    SetConsoleTextAttribute(hConsole, DEFAULT);
+
+    Example3();
+
     std::cout << "\n\n\n";
 }
 
