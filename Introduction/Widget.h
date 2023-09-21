@@ -20,6 +20,8 @@ public:
 	// move constructor
 	Widget(Widget&& widMove) noexcept;
 
+	Widget& operator=(const Widget& widget);
+
 	void Display();
 
 	~Widget();
