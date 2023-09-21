@@ -18,5 +18,13 @@
     <ClCompile Include="Auto.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="UndesiredTypes.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="UndesiredTypes.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

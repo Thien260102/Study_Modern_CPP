@@ -4,6 +4,7 @@
 #include <vector>
 #include <unordered_map>
 
+#include "UndesiredTypes.h"
 
 #define RED     12
 #define DEFAULT 15
@@ -48,6 +49,23 @@ int main()
     SetConsoleTextAttribute(hConsole, DEFAULT);
 
     Example3();
+
+    SetConsoleTextAttribute(hConsole, RED);
+
+    std::cout << "Undesired Types: \n";
+
+    SetConsoleTextAttribute(hConsole, DEFAULT);
+
+    UndesiredTypes::Example1();
+
+    /// <summary>
+    /// Remember
+    /// • “Invisible” proxy types can cause auto to deduce the “wrong” type for an 
+    /// initializing expression.
+    /// • The explicitly typed initializer idiom forces auto to deduce the type you want
+    /// it to have.
+    /// </summary>
+    /// <returns></returns>
 
     std::cout << "\n\n\n";
 }

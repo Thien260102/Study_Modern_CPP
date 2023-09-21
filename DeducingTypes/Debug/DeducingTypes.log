@@ -1,0 +1,6 @@
+﻿  AutoTypeDeduction.cpp
+  DecltypeExample.cpp
+  DeducingTypes.cpp
+  Generating Code...
+D:\ModernCpp\ModernCpp\DeducingTypes\DecltypeExample.cpp(77): warning C4172: returning address of local variable or temporary: x
+  DeducingTypes.vcxproj -> D:\ModernCpp\ModernCpp\Debug\DeducingTypes.exe
