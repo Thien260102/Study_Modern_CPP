@@ -24,12 +24,18 @@
     <ClCompile Include="Widget.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="CTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BracesAndParentheses.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Widget.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CTest.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

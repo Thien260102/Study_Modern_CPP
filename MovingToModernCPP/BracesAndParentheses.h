@@ -9,6 +9,13 @@ public:
 
 	void Example2();
 	
+	void Example3();
+
+	void Example4();
+
+	void Example5();
+
+	void Example6();
 };
 
 

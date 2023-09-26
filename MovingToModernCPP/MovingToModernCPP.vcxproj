@@ -140,11 +140,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="BracesAndParentheses.cpp" />
+    <ClCompile Include="CTest.cpp" />
     <ClCompile Include="MovingToModernCPP.cpp" />
     <ClCompile Include="Widget.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BracesAndParentheses.h" />
+    <ClInclude Include="CTest.h" />
     <ClInclude Include="Widget.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -2,6 +2,7 @@
 #include <iostream>
 #include "../Introduction/Widget.h"
 #include <vector>
+#include "CTest.h"
 
 
 void BracesAndParentheses::Example1()
@@ -45,6 +46,79 @@ void BracesAndParentheses::Example2()
 	std::cout << "\n\n";
 }
 
+void BracesAndParentheses::Example3()
+{
+	std::cout << "\n Case intitialize use braces or '=', but not parentheses: ";
+	std::cout << "\n class Widget { \n...";
+
+	std::cout << "\nprivate:";
+	std::cout << "\n  int x{0}; is fine";
+	std::cout << "\n  int y = 0; is fine";
+	std::cout << "\n  int z(0); error";
+
+	std::cout << "\n }";
+
+	std::cout << "\n\n";
+}
+
+void BracesAndParentheses::Example4()
+{
+	double x = 1, y = 2, z = 3;
+
+	//int sum1{ x + y + z };
+	std::cout << "\nbraced initialization is that it prohibits implicit narrowing conversions among built - in types ";
+	std::cout << "\ndouble x = 1, y = 2, z = 3;";
+	std::cout << "\n int sumt1{x + y + z}; error";
+
+	int sum2(x + y + z);
+	std::cout << "\n int sum2(x + y + z): " << sum2;
+
+	int sum3 = x + y + z;
+	std::cout << "\n int sum3 = x + y + z: " << sum3;
+
+	std::cout << "\n\n";
+}
+
+void BracesAndParentheses::Example5()
+{
+	std::cout << "\nCall CTest constructor with argument 1 'CTest c1(1)': ";
+	CTest c1(1);
+
+	std::cout << "\nDeclare function named c2 'CTest c2()' that return CTest: ";
+	CTest c2();
+
+	std::cout << "\n\nCall CTest default constructor 'CTest c3': ";
+	CTest c3;
+
+	std::cout << "Or you can call like this 'CTest c4{}': ";
+	CTest c4{};
+
+	std::cout << "\n\n";
+}
+
+void BracesAndParentheses::Example6()
+{
+	std::cout << "\nSome special case: ";
+
+	std::cout << "\n'CTest c1{10, 5.0}'Call std::initializer_list constructor: ";
+	CTest c1{ 10, 5.0 };	// 10 and 5.0 convert to long double
+
+	std::cout << "\n'CTest c2(c1)' call copy constructor: ";
+	CTest c2(c1);
+
+	std::cout << "\n'CTest c3{c1}' call std::initializer_list constructor (c1 convert to float, float convert to long double): ";
+	CTest c3{ c1 };
+
+	std::cout << "\n'CTest c4(std::move(c3))' call move constructor: ";
+	CTest c4(std::move(c3));
+
+	std::cout << "\n'CTest c5{ std::move(c3) }' call move constructor: ";
+	CTest c5{ std::move(c3) };
+
+	std::cout << "\n'CTest c6{ 10, 5.0 }' call std::initializer_list constructor: ";
+	CTest c6{ 10, 5.0 };
+	std::cout << "\n\n";
+}
 
 
 
