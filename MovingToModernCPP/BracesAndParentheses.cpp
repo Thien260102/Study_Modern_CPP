@@ -100,23 +100,34 @@ void BracesAndParentheses::Example6()
 {
 	std::cout << "\nSome special case: ";
 
+	std::cout << "\n'CTest c'Call default constructor: ";
+	CTest c;	// 10 and 5.0 convert to long double
+
 	std::cout << "\n'CTest c1{10, 5.0}'Call std::initializer_list constructor: ";
 	CTest c1{ 10, 5.0 };	// 10 and 5.0 convert to long double
 
 	std::cout << "\n'CTest c2(c1)' call copy constructor: ";
-	CTest c2(c1);
+	CTest c2(c);
 
-	std::cout << "\n'CTest c3{c1}' call std::initializer_list constructor (c1 convert to float, float convert to long double): ";
-	CTest c3{ c1 };
+	std::cout << "\n'CTest c3{c1}' the book told: ' call std::initializer_list constructor (c1 convert to float, float convert to long double) ', but result: ";
+	CTest c3{ c };
+
+	std::cout << "\n\n\n";
+
+	std::cout << "c3 + 2.0 = " << c3 + 2.0 << "\n\n\n";
 
 	std::cout << "\n'CTest c4(std::move(c3))' call move constructor: ";
 	CTest c4(std::move(c3));
 
-	std::cout << "\n'CTest c5{ std::move(c3) }' call move constructor: ";
+	std::cout << "\n'CTest c5{ std::move(c3) }'  the book told: it same reason as c3, but result: ";
 	CTest c5{ std::move(c3) };
 
-	std::cout << "\n'CTest c6{ 10, 5.0 }' call std::initializer_list constructor: ";
-	CTest c6{ 10, 5.0 };
+	std::cout << "\n\n'CTest c6{ c4, c5 }' call std::initializer_list constructor: ";
+	CTest c6{ c4, c5 };
+
+	std::cout << "\n /////////// This ERROR CAUSED BY COMPILER: clang++, g++ still true ///////////";
+	std::cout << "\n /////////// for more infor: https://stackoverflow.com/questions/35273025/c-copy-constructor-gets-called-instead-of-initializer-list ";
+
 	std::cout << "\n\n";
 }
 

@@ -25,10 +25,10 @@ CTest::CTest(const CTest& c)
 	std::cout << "Copy constructor called\n";
 }
 
-//CTest::CTest(std::initializer_list<long double> il)
-//{
-//	std::cout << "Constructor with argument (std::initializer_list)\n";
-//}
+CTest::CTest(std::initializer_list<long double> il)
+{
+	std::cout << "Constructor with argument (std::initializer_list)\n";
+}
 
 CTest::CTest(CTest&& ctest) noexcept
 {
@@ -36,8 +36,8 @@ CTest::CTest(CTest&& ctest) noexcept
 }
 
 
-CTest::operator float() const
-{
-	std::cout << "Convert CTest to float\n";
-	return 1.0;
-}
+//CTest::operator float() const
+//{
+//	std::cout << "Convert CTest to float\n";
+//	return 1.0;
+//}

@@ -13,18 +13,21 @@ public:
 
 	CTest(int, double);
 
-	CTest(std::initializer_list<long double> il)
-	{
-		std::cout << "Constructor with argument (std::initializer_list)\n";
-	}
+	CTest(std::initializer_list<long double> il);
 
 	operator float()
 	{
-		return 1.0;
+		std::cout << "Convert CTest to float\n";
+		return static_cast<float>(1.0);
 	}
 
-	operator float() const;
+	operator float() const
+	{
+		std::cout << "Convert CTest to float\n";
+		return static_cast<float>(1.0);
+	}
 
+	//copy constructor
 	CTest(const CTest& c);
 
 	// move constructor
