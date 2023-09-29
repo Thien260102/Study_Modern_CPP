@@ -96,6 +96,28 @@ void BracesAndParentheses::Example5()
 	std::cout << "\n\n";
 }
 
+
+template<typename T, typename... Ts>
+void DoSomeStuffs(Ts&&... params)
+{
+	T a{ params... };
+	std::cout << "\n std::vector<int> a{params...} size: " << a.size();
+	std::cout << "\n elements: ";
+	for (const auto& e : a)
+	{
+		std::cout << "\t" << e;
+	}
+
+	T b(params...);
+	std::cout << "\n std::vector<int> b(params...) size: " << b.size();
+	std::cout << "\n elements: ";
+	for (const auto& e : b)
+	{
+		std::cout << "\t" << e;
+	}
+}
+
+
 void BracesAndParentheses::Example6()
 {
 	std::cout << "\nSome special case: ";
@@ -128,10 +150,11 @@ void BracesAndParentheses::Example6()
 	std::cout << "\n /////////// This ERROR CAUSED BY COMPILER: clang++, g++ still true ///////////";
 	std::cout << "\n /////////// for more infor: https://stackoverflow.com/questions/35273025/c-copy-constructor-gets-called-instead-of-initializer-list ";
 
+	std::cout << "\n\n When i call function DoSomeStuffs<std::vector<int>>(10, 20), this is result: ";
+	DoSomeStuffs<std::vector<int>>(10, 20);
+
 	std::cout << "\n\n";
 }
-
-
 
 
 
