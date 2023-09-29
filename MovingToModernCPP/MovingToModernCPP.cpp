@@ -3,11 +3,11 @@
 
 #include "Widget.h"
 #include "BracesAndParentheses.h"
+#include "NULL_nullptr_0.h"
 
 #define RED     12
 #define DEFAULT 15
 #define BLUE    9
-
 
 
 int main()
@@ -15,6 +15,7 @@ int main()
     HANDLE hConsole;
     hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 
+#pragma region Braces and Parentheses
     SetConsoleTextAttribute(hConsole, RED);
     std::cout << "DISTINGUISH BETWEEN () AND {}: \n";
 
@@ -61,6 +62,27 @@ int main()
     SetConsoleTextAttribute(hConsole, DEFAULT);
     example.Example6();
 
+#pragma endregion
+
+#pragma region NULL nullptr 0
+    SetConsoleTextAttribute(hConsole, RED);
+    std::cout << "\nPREFER 'nullptr' TO 0 AND NULL: \n";
+
+    NULL_nullptr_0 example1;
+
+    SetConsoleTextAttribute(hConsole, BLUE);
+    std::cout << "- Example 1: \n";
+
+    SetConsoleTextAttribute(hConsole, DEFAULT);
+    example1.Example1();
+
+    SetConsoleTextAttribute(hConsole, BLUE);
+    std::cout << "- Example 2: \n";
+
+    SetConsoleTextAttribute(hConsole, DEFAULT);
+    example1.Example2();
+
+#pragma endregion
+
     std::cout << " \n\n\n";
 }
-

@@ -88,6 +88,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp14</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -142,11 +143,13 @@
     <ClCompile Include="BracesAndParentheses.cpp" />
     <ClCompile Include="CTest.cpp" />
     <ClCompile Include="MovingToModernCPP.cpp" />
+    <ClCompile Include="NULL_nullptr_0.cpp" />
     <ClCompile Include="Widget.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BracesAndParentheses.h" />
     <ClInclude Include="CTest.h" />
+    <ClInclude Include="NULL_nullptr_0.h" />
     <ClInclude Include="Widget.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

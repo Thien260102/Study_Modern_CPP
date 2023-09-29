@@ -27,6 +27,9 @@
     <ClCompile Include="CTest.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="NULL_nullptr_0.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BracesAndParentheses.h">
@@ -36,6 +39,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="CTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="NULL_nullptr_0.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
